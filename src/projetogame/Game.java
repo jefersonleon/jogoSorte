@@ -18,6 +18,7 @@ public class Game {
         nsorte = n.nextInt(10) + 1;
     }
     int chances;
+    
 
     public void jogar(int valor, int chance) {
 
@@ -31,24 +32,32 @@ public class Game {
 
         if (valor == nsorte && chances < chance) {
             JOptionPane.showMessageDialog(null, "Você acertou!!!",
-                     "Jogo da Sorte", JOptionPane.INFORMATION_MESSAGE);
+                    "Jogo da Sorte", JOptionPane.INFORMATION_MESSAGE);
             achou = true;//flag
         } else if (valor != nsorte) {
             chances--;
             JOptionPane.showMessageDialog(null,
                     "Beeehhhh Errou jacaré!!!", "Jogo da Sorte", JOptionPane.ERROR_MESSAGE);
+
             if (chances > 0) {
-                JOptionPane.showMessageDialog(null, "você ainda possui " 
+                JOptionPane.showMessageDialog(null, "você ainda possui "
                         + chances + " chances para jogar",
                         "Jogo do Azar", JOptionPane.ERROR_MESSAGE);
+
             }
         }
         if (chances == 0) {
+
             JOptionPane.showMessageDialog(null,
                     "SE FERROU MANÉ, A CASA AGRADECE!!! \n O "
                     + "NUMERO DA SORTE ERA " + nsorte,
                     "Jogo da Sorte", JOptionPane.ERROR_MESSAGE);
+          
         }
 
+    }
+
+    public int retirarCaracter(String valor) {
+        return Integer.parseInt(valor.replace(" ", "").trim());
     }
 }
